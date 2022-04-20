@@ -1,0 +1,75 @@
+# rancher_server_aws
+
+* Crie 3 instancias EC2 t3.medium	na Aws e acesse as mesmas via terminal com ssh:
+<br>rancher
+<br>k8s-1
+<br>k8s-2
+<br>Importante que no grupo de segurança deve-se liberar a porta 22/tcp para internet
+
+* Instale o git nas 3 instancias criadas:
+<br>apt-get update && apt-get install git -y
+
+* Clone o repositorio nas 3 instancias criadas:
+<br>git clone https://github.com/GuilhermeAuras/shell_scripts_k8s.git
+
+* Na instancia rancher execute o script:
+<br>bash shell_scripts_k8s/rancher_server_e_k8s/rancher_server.sh
+
+* Nas instancias k8s-1 e k8s-2 execute:
+<br>bash shell_scripts_k8s/rancher_server_e_k8s/k8s.sh
+
+* Na instancia rancher rode o comando abaixo e copie o "Bootstrap Password":
+<br>docker logs rancher | grep "Bootstrap Password:"
+
+* Com o IP externo da instancia rancher copie o "Bootstrap Password" no primeiro acesso.
+
+* Marque a opção "Set specifc password to use" e coloque sua senha.
+
+* Acesse:
+<br>https://ip_da_sua_instancia_ec2/dashboard/c/local/manager/provisioning.cattle.io.cluster/create
+
+* Marque a opção "custom"
+<br>Preencha:
+<br>Cluster Name
+
+* Depois Next
+
+* No passo 1 marque:
+<br>etcd
+<br>Control Plane
+<br>Work
+
+* No passo 2 copie o Token.
+
+* Cole o Token nas instancias k8s-1 e k8s-2 e aguarde o container subir.
+
+* No rancher server cline em "Done" e aguarde terminar.
+
+* No rancher copie o "kubeConfig do cluster".
+
+* No rancher pelo terminal faça:
+<br>vim /root/.kube/config e cole o "kubeConfig do cluster"
+
+* Teste a comunicação entre os nodes:
+<br>kubectl get nodes
+
+* No Rancher pelo terminal baixe o projeto:
+<br> git clone https://github.com/GuilhermeAuras/yamls_scripts_k8s.git
+
+* Check os arquivos:
+<br>ls  /yamls_scripts_k8s/site_projeto_nginx/
+<br>deployment-frontend.yaml  ingress-frontend.yaml  services-frontend.yaml
+
+* Faça o deploy:
+<br>kubectl apply -f /yamls_scripts_k8s/site_projeto_nginx/
+
+* DNS Route 53 (ingress):
+
+<br>rancher.seudominio.com	A	Simples	1.2.3.4 #IP do rancher server
+
+<br>*.rancher.seudominio.com	A	Simples 1.1.1.1  #IP do no_1 2.2.2.2 #IP do no_2
+
+* Teste acessendo o IP externo da instancia k8s-1 ou k8s-2 no navegador, deve abrir uma pagina com Nginx se tudo ocorrer bem.
+
+
+
