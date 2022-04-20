@@ -69,7 +69,7 @@
 
 <br>*.rancher.seudominio.com	A	Simples 1.1.1.1  #IP do no_1 2.2.2.2 #IP do no_2
 
-* Teste acessendo o IP externo da instancia k8s-1 ou k8s-2 no navegador, deve abrir uma pagina com Nginx se tudo ocorrer bem.
+* Teste o acesso IP externo da instancia k8s-1 ou k8s-2 no navegador, deve abrir uma pagina com Nginx se tudo ocorrer bem.
 
 
 
