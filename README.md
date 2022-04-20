@@ -63,7 +63,7 @@
 * Suba o deploy no rancher server:
 <br>kubectl apply -f /yamls_scripts_k8s/site_projeto_nginx/
 
-* COnfigure o DNS Route 53 (ingress):
+* Configure o DNS Route 53 (ingress):
 <br>rancher.seudominio.com	A	Simples	1.2.3.4 #IP do rancher server
 <br>*.rancher.seudominio.com	A	Simples 1.1.1.1  #IP do no_1 2.2.2.2 #IP do no_2
 
