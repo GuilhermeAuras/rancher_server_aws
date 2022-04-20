@@ -41,14 +41,14 @@
 
 * No passo 2 copie o "Token".
 
-* Cole o "Token" nas instancias k8s-1 e k8s-2 e aguarde o container subir.
+* Pelo terminal cole o "Token" nas instancias k8s-1 e k8s-2 e aguarde o container subir.
 
 * No rancher server pela interface web cline em "Done" e aguarde terminar.
 
 * No rancher server pela interface web copie o "kubeConfig do cluster".
 
 * No rancher server pelo terminal faça:
-<br>vim /root/.kube/config e cole o "kubeConfig do cluster"
+<br>vim /root/.kube/config e cole o "kubeConfig do cluster" e salve.
 
 * Teste a comunicação entre os nodes via terminal no rancher server:
 <br>kubectl get nodes
