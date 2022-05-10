@@ -45,7 +45,7 @@
 
 * Pelo terminal cole o "Token" nas instancias k8s-1 e k8s-2, volte no Rancher web clique no seu cluster, machines e aguarde subir os nodes.
 
-* No rancher server pela interface web copie o "kubeConfig do cluster".
+* No rancher server pela interface web nos 3 "pontinhos" baixe e copie o "kubeConfig do cluster".
 
 * No rancher server pelo terminal faça:
 <br>vim /root/.kube/config e cole o "kubeConfig do cluster" e salve.
