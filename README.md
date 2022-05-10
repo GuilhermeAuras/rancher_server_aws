@@ -64,8 +64,12 @@
 <br>kubectl apply -f /yamls_scripts_k8s/site_projeto_nginx/
 
 * Configure o DNS Route 53 (ingress):
-<br>rancher.seudominio.com	A	Simples	1.2.3.4 #IP do rancher server
-<br>*.rancher.seudominio.com	A	Simples 1.1.1.1  #IP do no_1
-<br>*.rancher.seudominio.com	A	Simples 2.2.2.2  #IP do no_2 
-
+<br>
+rancher.seudominio.com	A	Simples	1.2.3.4 #IP do rancher server
+<br>
+*.rancher.seudominio.com	A	Simples 1.1.1.1  #IP do no_1
+<br>
+*.rancher.seudominio.com	A	Simples 2.2.2.2  #IP do no_2
+<br>
+<br>
 * Teste o acesso via IP externo das instancias k8s-1 ou k8s-2 no navegador, deve abrir uma pagina com Nginx se tudo ocorrer bem.
