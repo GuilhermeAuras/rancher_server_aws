@@ -39,6 +39,8 @@
 <br>Control Plane
 <br>Work
 
+* Done
+
 * No passo 2 copie o "Token".
 
 * Pelo terminal cole o "Token" nas instancias k8s-1 e k8s-2 e aguarde o container subir.
